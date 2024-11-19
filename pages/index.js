@@ -33,7 +33,7 @@ export default function Home() {
     };
 
     setResult(await predictReview(beerReview))
-    setSubmitted(false)
+    setSubmitted(true)
   }
 
 
@@ -101,9 +101,8 @@ export default function Home() {
 
           <Button onClick={handleSubmit} variant="outline-primary">Submit</Button>
           <br/><br/>
-          {!submitted && !result && <Spinner animation="grow" />}
 
-          {result && <h2>Overall Rating Prediction: {result.predicted_rating.toFixed(1)}</h2>}
+          {result != 0 && <h2>Overall Rating Prediction: {result.predicted_rating.toFixed(1)}</h2>}
 
         </Container>
       </Form>
